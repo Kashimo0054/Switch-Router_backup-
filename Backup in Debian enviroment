@@ -1,0 +1,47 @@
+import paramiko
+import time
+import getpass
+from datetime import datetime
+import os
+
+time_file = datetime.now().strftime("%y-%m-%d")
+
+username = "yourusername"
+password = "yourpassword"
+port = 22
+device_list = {'0.0.0.0':'sw1','0.0.0.0':'sw2'}
+
+for device in device_list:
+    # print("connnecting to  " + str(device))
+    ssh_client = paramiko.SSHClient()
+    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh_client.connect(device, port, username, password)
+    connection = ssh_client.invoke_shell()
+
+
+   # time.sleep(0.5)
+    #connection.send('enabl')
+    #time.sleep(0.5)
+   # connection.send('config\n')
+   # time.sleep(0.5)
+    connection.send('screen-length 0 temporary\n')
+    time.sleep(0.5)
+    # connection.send(100 * '\r')
+    time.sleep(1)
+    connection.send('display current-configuration' + '\n' + '\n')
+    time.sleep(60)
+
+    output = connection.recv(10000000000000000000000000000)  # .recv() - The maximum amount of data to be received at once is specified by nbytes
+    output = output.decode("utf-8")  # Change file type from bytes to string ###################### changes to be made
+    time.sleep(1.5)
+    sw_folder = (f"{device}_sw")  ###################### changes to be made
+    print(f"{device} ip reachable..")
+
+    dirName = '//home//noc//sw_backup//' + (sw_folder)  ###################### changes to be made
+    # Create target directory & all intermediate directories if don't exists
+    os.makedirs(dirName, exist_ok=True)  ###################### changes to be made
+    filename = datetime.datetime.now()  ###################### changes to be made
+    f = open((dirName) + "//" + filename.strftime("%d %B %Y " + (sw_folder)) + ".txt", "w")  ###################### changes to be made
+    f.write(output)  ###################### changes to be made
+    time.sleep(0.5)
+    f.close()
