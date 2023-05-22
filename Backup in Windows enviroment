@@ -19,7 +19,7 @@ for device in device_list:
 
 
    # time.sleep(0.5)
-    #connection.send('enabl')
+    #connection.send('enable')
     #time.sleep(0.5)
    # connection.send('config\n')
    # time.sleep(0.5)
