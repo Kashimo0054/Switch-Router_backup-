@@ -1,12 +1,15 @@
-# Switch-Router_backup-
-Network-device backup using python
-This simple python script allows you to ssh into network devices enabled with ssh and retrieve configuration at the present state and store files on the system using 
-date and time format 
-The modules used in the script are very easy to grasp and will find tons of information online 
-It is essential to grasp some foundational level of python before you can create your own python script trial and error lead you to become a better system/engineer or 
-administrator 
-The concept used in this script includes a dictionary to store my IP address and a description of the device an example would include a core router or a switch that you have placed in your network 
-Next, it would include a for loop  to iterate over the dictionary and devices mentioned in it 
-The modules used include paramiko which would allow you to ssh into the device date and time module which would allow you to store files promptly on time and OS module which would allow you to manipulate and create files upon successful execution of the script. 
-This script  has been modified to work in Debian environment you can also use crontab to schedule the execution of the script at your convenience time 
-I would also include a script that can be executed on windows enviroment  and you can use task scheduler to achieve this 
+Network Device Backup Script using Python
+This Python script simplifies the process of backing up network devices enabled with SSH. By establishing an SSH connection, the script retrieves the device's configuration in its current state and stores the backup files on the local system using a date and time format.
+
+Key Features:
+
+Simplified Network Device Backup: The script automates the SSH login process to network devices and retrieves their configurations, streamlining the backup procedure.
+Easy-to-Grasp Modules: The script utilizes modules that are easy to understand and learn. Extensive online resources are available to support users in getting started quickly.
+Foundational Knowledge Requirement: Prior foundational knowledge of Python is recommended to fully comprehend and customize the script. Learning through trial and error contributes to becoming a more proficient system engineer or administrator.
+Device Dictionary for Configuration: The script employs a dictionary to store the IP addresses and descriptions of network devices. This allows for easy management and customization, supporting various device types such as core routers or switches within a network.
+Efficient Iteration: The script employs a for loop to iterate over the device dictionary, enabling automated backup of multiple devices with minimal code modification.
+Utilized Modules: The script utilizes Paramiko for SSH connectivity, the Date and Time module for accurate file naming, and the OS module for file manipulation and creation upon successful execution.
+Debian Environment Compatibility: The script has been modified to function effectively within a Debian environment. However, it can be adapted for other environments as well.
+Automation with Crontab: Users can schedule the script's execution conveniently using Crontab, allowing for regular and automated network device backups.
+Windows Environment Support: The script includes an alternative version that can be executed on a Windows environment. Users can leverage the Task Scheduler to automate backups as per their requirements.
+This script provides an efficient solution for network administrators and engineers to automate the backup process of SSH-enabled network devices. With its clear implementation and compatibility with different environments, it offers flexibility and ease of use.
